@@ -12,13 +12,18 @@ package com.aplication.servlet.entidades;
 public class ImpInyeccion extends Impresora{
     private String tipoCartucho;
     
-    public ImpInyeccion(String tipoCartucho, int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public ImpInyeccion(String tipoCartucho, int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
         this.tipoCartucho = tipoCartucho;
     }
     
     @Override
     public void imprimir() {
         System.out.println("Imprimiendo a laser");
+    }
+
+    @Override
+    public String getNombreComponente() {
+        return "Impresora inyeccion";
     }
 }

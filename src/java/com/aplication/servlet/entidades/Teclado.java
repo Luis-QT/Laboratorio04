@@ -11,14 +11,13 @@ package com.aplication.servlet.entidades;
  */
 public class Teclado extends DispEntrada{
     
-    public Teclado(int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public Teclado(int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
     }
-    
     private String teclas;
 
-    public Teclado(String teclas, int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public Teclado(String teclas, int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
         this.teclas = teclas;
     }
 
@@ -28,6 +27,11 @@ public class Teclado extends DispEntrada{
 
     public void setTeclas(String teclas) {
         this.teclas = teclas;
+    }
+
+    @Override
+    public String getNombreComponente() {
+        return "Teclado";
     }
     
 }

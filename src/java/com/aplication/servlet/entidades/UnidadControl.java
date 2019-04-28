@@ -14,5 +14,10 @@ public class UnidadControl extends Componente{
     public UnidadControl(String fabricante, String precio, String modelo) {
         super(fabricante, precio, modelo);
     }
+
+    @Override
+    public String getNombreComponente() {
+        return "CPU";
+    }
     
 }

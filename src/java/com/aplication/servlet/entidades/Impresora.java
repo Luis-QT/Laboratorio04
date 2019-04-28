@@ -11,8 +11,8 @@ package com.aplication.servlet.entidades;
  */
 public abstract class Impresora extends DispSalida{
     
-    public Impresora(int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public Impresora(int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
     }
     
     public abstract void imprimir();

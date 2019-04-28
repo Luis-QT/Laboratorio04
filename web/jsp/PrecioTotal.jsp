@@ -21,6 +21,8 @@
               <h5>(Venta de Ordenadores)</h5>
             </div>
             
+            
+              
             <div style="padding: 10px 0px;">
               <div class="row">
                 <div class="col">
@@ -64,12 +66,12 @@
                             <tr>
                                 <td>CPU</td>
                                 <td>1</td>
-                                <td>S/150</td>
+                                <td>S/${precioCpu}</td>
                             </tr>
                             <tr>
                                 <td>D.Entrada</td>
-                                <td>2</td>
-                                <td>S/300</td>
+                                <td>${cantEntradas}</td>
+                                <td>S/${precioEntradas}</td>
                             </tr>
                             <tr>
                                 <td>D.Salida</td>
@@ -78,7 +80,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2" style="text-align: right;">Precio Total</td>
-                                <td>S/550</td>
+                                <td>S/${precioTotal}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -87,6 +89,7 @@
                   </div>
                   <div class="row">
                     <div class="col">
+                      <input type="hidden" name="cpu_id" value="${cpu}">
                       <button type="submit" class="btn btn-primary">Vender</button>
                     </div>
                   </div>

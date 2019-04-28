@@ -11,8 +11,8 @@ package com.aplication.servlet.entidades;
  */
 public abstract class DispSalida extends Periferico{
     
-    public DispSalida(int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public DispSalida(int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
     }
     
 }

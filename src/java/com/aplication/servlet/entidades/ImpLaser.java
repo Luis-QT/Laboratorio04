@@ -14,8 +14,8 @@ public class ImpLaser extends Impresora{
     private String tipoToner;
     private int paginas;
 
-    public ImpLaser(String tipoToner, int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public ImpLaser(String tipoToner, int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
         this.tipoToner = tipoToner;
         paginas =0;
     }
@@ -23,6 +23,11 @@ public class ImpLaser extends Impresora{
     @Override
     public void imprimir() {
         System.out.println("Imprimiendo a laser");
+    }
+
+    @Override
+    public String getNombreComponente() {
+        return "Impresora Laser";
     }
     
 }
