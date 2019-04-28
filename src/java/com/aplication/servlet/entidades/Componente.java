@@ -10,6 +10,7 @@ package com.aplication.servlet.entidades;
  * @author LuisQT
  */
 public abstract class Componente {
+    private int id;
     private String fabricante;
     private String precio;
     private String modelo;
@@ -20,6 +21,14 @@ public abstract class Componente {
         this.modelo = modelo;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getFabricante() {
         return fabricante;
     }

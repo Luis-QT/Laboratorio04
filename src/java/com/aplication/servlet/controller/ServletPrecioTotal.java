@@ -5,6 +5,7 @@
  */
 package com.aplication.servlet.controller;
 
+import com.aplication.servlet.entidades.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.client.Client;
 
 /**
  *
@@ -71,8 +73,12 @@ public class ServletPrecioTotal extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String email = request.getParameter("email");
         
+        Cliente cliente = new Cliente(nombre, apellido, telefono, email);
+        
         String cpu = request.getParameter("cpu");
         
+        
+        request.setAttribute("cliente",cliente);
         request.getRequestDispatcher("jsp/PrecioTotal.jsp").forward(request, response);
 
     }

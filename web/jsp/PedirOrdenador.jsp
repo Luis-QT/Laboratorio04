@@ -1,6 +1,4 @@
-<%@page import="com.aplication.servlet.dao.ConsultaTrabajadoresConContratoVigenteDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="com.aplication.servlet.dao.TrabajadorDAO"%>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

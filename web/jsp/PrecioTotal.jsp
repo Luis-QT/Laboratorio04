@@ -1,7 +1,5 @@
-<%@page import="com.aplication.servlet.dao.ConsultaTrabajadoresConContratoVigenteDAO"%>
 <%@page import="java.util.List"%>
-<%@page import="com.aplication.servlet.dao.TrabajadorDAO"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,15 +33,15 @@
                           <tbody>
                             <tr>
                               <th scope="row">Nombre</th>
-                              <td>Luis Antonio</td>
+                              <td>${cliente.getNombre()}</td>
                             </tr>
                             <tr>
                               <th scope="row">Apellidos</th>
-                              <td>Quispe Taquire</td>
+                              <td>${cliente.getApellido()}</td>
                             </tr>
                             <tr>
                               <th scope="row">Telefono</th>
-                              <td>926121034</td>
+                              <td>${cliente.getTelefono()}</td>
                             </tr>
                           </tbody>
                         </table>
