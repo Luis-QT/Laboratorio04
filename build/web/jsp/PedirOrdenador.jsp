@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col">
             <div style="border-bottom: 1px solid #000;text-align: center;"> 
-              <h3>CYBERSOUL</h3>
+              <h3>CYBERSOUL ${dispEntradas}</h3>
               <h5>(Venta de Ordenadores)</h5>
             </div>
             
@@ -86,21 +86,15 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  <c:forEach items="${cpus}" var="obj">
                                   <tr>
-                                      <td>Core i7 6400 Intel 3.00Ghz</td>
-                                      <td>S/1500</td>
-                                      <td><input class="cpu" type="checkbox" value="1" name="cpu"></td>
+                                      <tr>
+                                        <td>${obj.getDatos()}</td>
+                                        <td>${obj.getPrecio()}</td>
+                                        <td><input class="cpu" type="checkbox" value="${obj.getId()}-${obj.getPrecio()}" name="cpu"></td>
+                                      </tr>
                                   </tr>
-                                  <tr>
-                                      <td>Core i7 6400 Intel 3.00Ghz</td>
-                                      <td>S/1500</td>
-                                      <td><input class="cpu" type="checkbox" value="2"  name="cpu"></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Core i7 6400 Intel 3.00Ghz</td>
-                                      <td>S/1500</td>
-                                      <td><input class="cpu" type="checkbox" value="3"  name="cpu"></td>
-                                  </tr>
+                                  </c:forEach>
                                 </tbody>
                               </table>
                             </div>
@@ -121,48 +115,22 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                      <td>Teclado Micronics VC451 Ludico+</td>
-                                      <td>S/300</td>
+                                  <c:forEach items="${dispEntradas}" var="obj">
+                                  <tr >
+                                      <td>${obj.getDatos()}</td>
+                                      <td>${obj.getPrecio()}</td>
                                       <td>
-                                        <select name="salida" class="form-control" style="width: 60px;">
-                                          <option>1</option>  
-                                          <option>2</option>  
-                                          <option>3</option>  
-                                          <option>4</option>  
-                                          <option>5</option>  
-                                          <option>6</option>  
+                                        <select name="entrada" class="form-control" style="width: 60px;">
+                                          <option value="${obj.getId()}-0-${obj.getPrecio()}">0</option>  
+                                          <option value="${obj.getId()}-1-${obj.getPrecio()}">1</option>  
+                                          <option value="${obj.getId()}-2-${obj.getPrecio()}">2</option>  
+                                          <option value="${obj.getId()}-3-${obj.getPrecio()}">3</option>  
+                                          <option value="${obj.getId()}-4-${obj.getPrecio()}">4</option>  
+                                          <option value="${obj.getId()}-5-${obj.getPrecio()}">5</option>  
                                         </select>
                                       </td>
                                   </tr>
-                                  <tr>
-                                      <td>Teclado Micronics VC451 Ludico+</td>
-                                      <td>S/300</td>
-                                      <td>
-                                        <select name="salida" class="form-control" style="width: 60px;">
-                                          <option>1</option>  
-                                          <option>2</option>  
-                                          <option>3</option>  
-                                          <option>4</option>  
-                                          <option>5</option>  
-                                          <option>6</option>  
-                                        </select>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>Teclado Micronics VC451 Ludico+</td>
-                                      <td>S/300</td>
-                                      <td>
-                                        <select name="salida" class="form-control" style="width: 60px;">
-                                          <option>1</option>  
-                                          <option>2</option>  
-                                          <option>3</option>  
-                                          <option>4</option>  
-                                          <option>5</option>  
-                                          <option>6</option>  
-                                        </select>
-                                      </td>
-                                  </tr>
+                                  </c:forEach>
                                 </tbody>
                               </table>
                             </div>
@@ -182,48 +150,22 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  <c:forEach items="${dispSalidas}" var="obj">
                                   <tr>
-                                      <td>Impresora Laser Ricoh Aficio C2500</td>
-                                      <td>S/3000</td>
+                                      <td>${obj.getDatos()}</td>
+                                      <td>${obj.getPrecio()}</td>
                                       <td>
                                         <select name="salida" class="form-control" style="width: 60px;">
-                                          <option>1</option>  
-                                          <option>2</option>  
-                                          <option>3</option>  
-                                          <option>4</option>  
-                                          <option>5</option>  
-                                          <option>6</option>  
+                                          <option value="${obj.getId()}-0-${obj.getPrecio()}">0</option>  
+                                          <option value="${obj.getId()}-1-${obj.getPrecio()}">1</option>  
+                                          <option value="${obj.getId()}-2-${obj.getPrecio()}">2</option>  
+                                          <option value="${obj.getId()}-3-${obj.getPrecio()}">3</option>  
+                                          <option value="${obj.getId()}-4-${obj.getPrecio()}">4</option>  
+                                          <option value="${obj.getId()}-5-${obj.getPrecio()}">5</option>  
                                         </select>
                                       </td>
                                   </tr>
-                                  <tr>
-                                      <td>Impresora Laser Ricoh Aficio C2500</td>
-                                      <td>S/3000</td>
-                                      <td>
-                                        <select name="salida" class="form-control" style="width: 60px;">
-                                          <option>1</option>  
-                                          <option>2</option>  
-                                          <option>3</option>  
-                                          <option>4</option>  
-                                          <option>5</option>  
-                                          <option>6</option>  
-                                        </select>
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>Impresora Laser Ricoh Aficio C2500</td>
-                                      <td>S/3000</td>
-                                      <td>
-                                        <select name="salida" class="form-control" style="width: 60px;">
-                                          <option>1</option>  
-                                          <option>2</option>  
-                                          <option>3</option>  
-                                          <option>4</option>  
-                                          <option>5</option>  
-                                          <option>6</option>  
-                                        </select>
-                                      </td>
-                                  </tr>
+                                  </c:forEach>
                                 </tbody>
                               </table>
                             </div>
