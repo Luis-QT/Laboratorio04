@@ -13,8 +13,8 @@ public class Pantalla extends DispSalida{
     
     private String pixeles;
 
-    public Pantalla(String pixeles, int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public Pantalla(String pixeles, int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
         this.pixeles = pixeles;
     }
 
@@ -24,6 +24,11 @@ public class Pantalla extends DispSalida{
 
     public void setPixeles(String pixeles) {
         this.pixeles = pixeles;
+    }
+
+    @Override
+    public String getNombreComponente() {
+        return "Pantalla";
     }
     
 }

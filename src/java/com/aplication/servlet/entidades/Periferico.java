@@ -10,25 +10,25 @@ package com.aplication.servlet.entidades;
  * @author LuisQT
  */
 public abstract class Periferico extends Componente{
-    private int[] puertos;
+    private int puerto;
     private String tipoConector;
 
     public Periferico(String fabricante, String precio, String modelo) {
         super(fabricante, precio, modelo);
     }
-
-    public Periferico(int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
+    
+    public Periferico(int puerto, String tipoConector, String fabricante, String precio, String modelo) {
         super(fabricante, precio, modelo);
-        this.puertos = puertos;
+        this.puerto = puerto;
         this.tipoConector = tipoConector;
     }
 
-    public int[] getPuertos() {
-        return puertos;
+    public int getPuerto() {
+        return puerto;
     }
 
-    public void setPuertos(int[] puertos) {
-        this.puertos = puertos;
+    public void setPuerto(int puerto) {
+        this.puerto = puerto;
     }
 
     public String getTipoConector() {
@@ -37,6 +37,13 @@ public abstract class Periferico extends Componente{
 
     public void setTipoConector(String tipoConector) {
         this.tipoConector = tipoConector;
+    }
+    
+    @Override
+    public String getDatos(){
+        String modelo = super.getModelo();
+        String fabricante = super.getFabricante();
+        return getNombreComponente()+" "+fabricante+" "+modelo+" .Puerto : "+puerto+" .Conector: "+tipoConector;
     }
     
     

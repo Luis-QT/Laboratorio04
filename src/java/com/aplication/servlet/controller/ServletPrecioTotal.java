@@ -34,8 +34,6 @@ public class ServletPrecioTotal extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-        
         
         
     }
@@ -68,6 +66,10 @@ public class ServletPrecioTotal extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
+        String lista_id_entradas = "";
+        String id_cpu = "";
+        String lista_id_salidas = "";
+        
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
@@ -76,9 +78,64 @@ public class ServletPrecioTotal extends HttpServlet {
         Cliente cliente = new Cliente(nombre, apellido, telefono, email);
         
         String cpu = request.getParameter("cpu");
+        String[] entradas = request.getParameterValues("entrada");
+        String[] salidas = request.getParameterValues("salida");
+
+        //Calculo del precio y cantidad del cpu
+        String[] parts = cpu.split("-");
+        id_cpu = parts[0];
+        double precioCpu = Double.parseDouble(parts[1]);
+        
+        //Calculo del precio y cantidad de disp. entradas
+        double precioEntradas=0;
+        int cantEntradas=0;
+        for(String entrada : entradas){
+            String[] partes = entrada.split("-");
+            if(lista_id_entradas==""){
+                lista_id_entradas = partes[0];
+            }else{
+                lista_id_entradas = lista_id_entradas+"-"+partes[0];
+            }
+            int cantidad = Integer.parseInt(partes[1]);
+            double precio = Double.parseDouble(partes[2]);
+            if(cantidad!=0){
+                cantEntradas=cantEntradas+cantidad;
+            }
+            precioEntradas+=cantidad*precio;
+        }
+        
+        //Calculo del precio y cantidad de disp. salidas
+        double precioSalidas=0;
+        int cantSalidas=0;
+        for(String salida : salidas){
+            String[] partes = salida.split("-");
+            if(lista_id_salidas==""){
+                lista_id_salidas = partes[0];
+            }else{
+                lista_id_salidas = lista_id_salidas+"-"+partes[0];
+            }
+            int cantidad = Integer.parseInt(partes[1]);
+            double precio = Double.parseDouble(partes[2]);
+            if(cantidad!=0){
+                cantSalidas=cantSalidas+cantidad;
+            }
+            precioSalidas+=cantidad*precio;
+        }
+        
+        double precioTotal = precioCpu+precioEntradas+precioSalidas;
         
         
         request.setAttribute("cliente",cliente);
+        request.setAttribute("precioEntradas",precioEntradas);
+        request.setAttribute("cantEntradas",cantEntradas);
+        request.setAttribute("precioSalidas",precioSalidas);
+        request.setAttribute("cantSalidas",cantSalidas);
+        request.setAttribute("precioCpu",precioCpu);
+        request.setAttribute("precioTotal",precioTotal);
+        request.setAttribute("id_cpu",id_cpu);
+        request.setAttribute("lista_id_entradas",lista_id_entradas);
+        request.setAttribute("lista_id_salidas",lista_id_salidas);
+        
         request.getRequestDispatcher("jsp/PrecioTotal.jsp").forward(request, response);
 
     }

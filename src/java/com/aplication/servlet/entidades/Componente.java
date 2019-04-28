@@ -21,6 +21,12 @@ public abstract class Componente {
         this.modelo = modelo;
     }
 
+    public abstract String getNombreComponente();
+
+    public String getDatos(){
+        return getNombreComponente()+" "+fabricante+" "+modelo;
+    }
+    
     public int getId() {
         return id;
     }

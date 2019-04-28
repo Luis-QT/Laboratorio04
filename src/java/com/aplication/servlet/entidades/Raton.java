@@ -11,8 +11,14 @@ package com.aplication.servlet.entidades;
  */
 public class Raton extends DispEntrada{
     
-    public Raton(int[] puertos, String tipoConector, String fabricante, String precio, String modelo) {
-        super(puertos, tipoConector, fabricante, precio, modelo);
+    public Raton(int puerto, String tipoConector, String fabricante, String precio, String modelo) {
+        super(puerto, tipoConector, fabricante, precio, modelo);
     }
+
+    @Override
+    public String getNombreComponente() {
+        return "Ratón ";
+    }
+
     
 }

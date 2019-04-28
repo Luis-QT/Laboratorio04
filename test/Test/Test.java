@@ -21,9 +21,8 @@ public class Test {
     
     public static void main(String[] args) throws SQLException {
         
-        int[] i = {1,2,3};
-        Teclado teclado = new Teclado(i, "Cable ps2", "asus", "13.56", "DHSFSJB");
-        Teclado raton = new Teclado(i, "Cable usb", "lenovo", "13.56", "VV66s");
+        Teclado teclado = new Teclado(1, "Cable ps2", "asus", "13.56", "DHSFSJB");
+        Teclado raton = new Teclado(2, "Cable usb", "lenovo", "13.56", "VV66s");
         
         ArrayList<Componente> componente = new ArrayList();
         
