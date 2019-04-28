@@ -5,8 +5,12 @@
  */
 package Test;
 
+import com.aplication.servlet.conexion.Consultas;
+import com.aplication.servlet.controller.ConvertidorConsultaArray;
 import com.aplication.servlet.entidades.Componente;
 import com.aplication.servlet.entidades.Teclado;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +18,8 @@ import java.util.ArrayList;
  * @author LuisQT
  */
 public class Test {
-    public static void main(String[] args) {
+    
+    public static void main(String[] args) throws SQLException {
         
         int[] i = {1,2,3};
         Teclado teclado = new Teclado(i, "Cable ps2", "asus", "13.56", "DHSFSJB");
@@ -28,6 +33,17 @@ public class Test {
         componente.stream().forEach((Componente c) -> {
             System.out.println("Fabricante : "+ c.getFabricante());
         });
+        
+//        ConvertidorConsultaArray prueba = new ConvertidorConsultaArray();
+//        
+//        System.out.println(prueba.listarComponenteEntrada());
+        
+        Consultas consulta = new Consultas();
+        ResultSet result = consulta.listarComponenteEntrada();
+        while(result.next()){
+            System.out.println(result.getString(1) +  ", " + result.getString(2));
+        }
+            
         
     }
 }

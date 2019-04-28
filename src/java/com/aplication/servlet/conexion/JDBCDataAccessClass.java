@@ -15,27 +15,33 @@ import java.util.ArrayList;
 
 public class JDBCDataAccessClass {
 
-    private static Connection _connection= null;
- 
-
-    private static void initialize() {
+    private java.sql.Connection _connection;
+    public Statement statement;
+    private String serverName = "localhost";
+    private String portNumber = "3306"; //33065
+    private String databaseName = "laboratorio04?zeroDateTimeBehavior=convertToNull";
+    private String url = "jdbc:mysql://" + serverName + ":" + portNumber + "/" + databaseName;
+    private String userName = "root";
+    private String password = "";
+    
+    public void initialize() {
         try {
             DriverManager.registerDriver(new Driver());
-            _connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_practica_1", "root", "");
+            _connection = DriverManager.getConnection(url, userName, password);
         } catch (SQLException e) {
-            System.out.println(
-                    "Error al registrar el controlador"
-                    + e.getMessage());
+            System.out.println("Error al registrar el controlador " + e.getMessage());
         }
     }
     
-    public static Connection getInstance(){
+    public Connection getInstance(){
         if (_connection == null){
             initialize();
         }
         return _connection;
     }
 
-
+    public void disconnect() throws SQLException{
+        _connection.close();
+    }
 
 }
